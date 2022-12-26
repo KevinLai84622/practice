@@ -1,0 +1,87 @@
+package poker;
+
+import java.util.Random;
+
+//  定義顯示牌面與洗牌方法
+public class Shuffle {
+	static Card[] oneCard = new Card[52]; // 儲存每張牌的花色,數字
+	
+	// 產生一副新牌
+	static void initial() {
+		int i, temp;
+		int suit=0;
+		
+		for(i=0; i<52; i++) {	// 執行迴圈產生52張牌
+			if(i%13==0) {		// 每13張改變花色
+				suit++;
+			}
+			Card t = new Card();
+			t.setSuit(suit);	// 儲存花色
+			
+			temp = i%13;
+			switch(temp) {
+				case 0:
+					t.setNumber('A');				// 數字0 --> A
+					break;
+				case 9:
+					t.setNumber('O');				// 數字9 --> 10
+					break;
+				case 10:
+					t.setNumber('J');				// 數字10 --> J
+					break;
+				case 11:
+					t.setNumber('Q');				// 數字11 --> Q
+					break;
+				case 12:
+					t.setNumber('K');				// 數字12 --> K
+					break;
+				default:
+					t.setNumber((char)(temp+'1')); 	// 其他數字 --> 自動+1
+			}
+			oneCard[i] = t;
+		}
+	}	
+	
+	// 顯示撲克牌
+	static void showCard() {
+		int i, j;
+		String s="";
+		
+		for(i=0, j=0; i<52; i++, j++) { // 初始排列 --> 撲克牌執行迴圈一遍
+			if(j%13==0) {				// 控制每種花色一列
+				System.out.println();
+			}
+			switch(oneCard[i].getSuit()) {	// 根據花色屬性,顯示花色符號
+				case 1:
+					s="黑桃";
+					break;
+				case 2:
+					s="紅心";
+					break;
+				case 3:
+					s="梅花";
+					break;
+				case 4:
+					s="方塊";
+					break;
+			}
+			System.out.print(" " + s + oneCard[i].getNumber());
+		}
+		System.out.println();
+	}
+	
+	// 設計洗牌的方法
+	static void shuffle() {
+		int i, j;
+		Card tempCard = new Card(); // 交換過程臨時備份用		
+		Random r = new Random();	// 使用隨機產生任意數字
+	
+		for(i=0; i<52; i++) {		// 切換52次排
+			j = r.nextInt(52);		// 搭配隨機產生的數字從52排中抽取
+			tempCard = oneCard[j];	// 換牌
+			oneCard[j] = oneCard[i];
+			oneCard[i] = tempCard;
+		}
+		
+	}
+}

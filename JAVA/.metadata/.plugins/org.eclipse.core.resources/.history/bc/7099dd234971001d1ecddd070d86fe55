@@ -1,0 +1,21 @@
+package diceGame.diceGame;
+
+import java.io.IOException;
+
+/*
+ * 玩家質兩個骰子，點數為1~6，如果第一次點數和為7或11，則玩家勝，如果點數和為2,3或12，則玩家輸，
+ * 如果和為其他點數，則記錄第一次的點數和，然後繼續擲骰，直到點數和等於第一次擲出的點數和，則玩家勝，
+ * 如果在這之前擲出了點數和為7，則玩家輸。
+ */
+
+public class diceGame {
+	public static void main(String[] args) throws IOException{
+		final int Win=0, Lost=1, Mid=2;
+		boolean flag=true;
+		int Outcome=Mid;
+		int sum;
+		int point=0;
+		System.out.println("~~擲骰子遊戲，按Enter開始遊戲~~");
+		
+	}
+}

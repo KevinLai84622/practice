@@ -1,0 +1,6 @@
+package poker;
+
+//  定義顯示牌面與洗牌方法
+public class Shuffle {
+	static Card[] = new Card[52]; // 儲存每張牌的花色數字
+}

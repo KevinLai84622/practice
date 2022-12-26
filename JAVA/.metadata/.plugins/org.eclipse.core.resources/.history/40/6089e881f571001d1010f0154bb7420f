@@ -1,0 +1,32 @@
+package poker;
+
+//  定義顯示牌面與洗牌方法
+public class Shuffle {
+	static Card[] oneCard = new Card[52]; // 儲存每張牌的花色,數字
+	
+	// 顯示撲克牌
+	static void showCard() {
+		int i, j;
+		String s="";
+		
+		for(i=0, j=0; i<52; i++, j++) { // 初始排列 --> 撲克牌執行迴圈一遍
+			if(j%13==0) {				// 控制每種花色一列
+				System.out.println();
+			}
+			switch(oneCard[i].getSuit()) {	// 根據花色屬性,顯示花色符號
+				case 1:
+					s="黑桃";
+					break;
+				case 2:
+					s="紅心";
+					break;
+				case 3:
+					s="梅花";
+					break;
+				case 4:
+					s="方塊";
+					break;
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+package sort.selectSort;
+
+public class DataWrap implements Comparable<DataWrap>{
+	int data;
+	String flag;
+	
+	public DataWrap(int data, String flag) {
+		super();
+		this.data = data;
+		this.flag = flag;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	@Override
+	public int compareTo(DataWrap o) {
+		return this.data>o.data? 1:(this.data==o.data? 0:-1);
+	}
+	
+}
